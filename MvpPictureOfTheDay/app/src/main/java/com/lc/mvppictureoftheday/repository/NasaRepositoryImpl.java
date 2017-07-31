@@ -9,8 +9,10 @@ import com.lc.mvppictureoftheday.models.NasaItem;
 public class NasaRepositoryImpl implements NasaRepository {
     @Override
     public NasaItem getNasaItem() {
+
+        //TODO use retrofit to get imageurl
         NasaItem item = new NasaItem();
-        item.setUrl("https://upload.wikimedia.org/wikipedia/commons/a/a8/Lol_LOL.png");
+        item.setUrl("https://i.ytimg.com/vi/sqYS7W-kgL8/maxresdefault.jpg");
         item.setTitle("Test");
         return item;
     }

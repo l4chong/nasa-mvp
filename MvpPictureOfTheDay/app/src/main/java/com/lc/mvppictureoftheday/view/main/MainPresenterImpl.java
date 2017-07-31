@@ -35,7 +35,6 @@ public class MainPresenterImpl implements MainPresenter {
     @Override
     public void loadNasaImageOfDay() {
         mItem = mNasaRepository.getNasaItem();
-
         if(mItem == null) {
             mView.showErrorMessage("There seems to be a problem");
         } else {
@@ -43,4 +42,9 @@ public class MainPresenterImpl implements MainPresenter {
             mView.displayTitle(mItem.getTitle());
         }
     }
+
+    public String getUrl(){
+        return mItem.getUrl();
+    }
+
 }
