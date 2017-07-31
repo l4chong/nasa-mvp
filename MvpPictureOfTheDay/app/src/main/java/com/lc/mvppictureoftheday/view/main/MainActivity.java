@@ -19,6 +19,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainView {
     @Bind(R.id.image) ImageView mImageView;
     @Bind(R.id.title) TextView mTitle;
+//    ImageView mImageView;
+//    TextView mTitle;
 
     @Inject
     MainPresenter mainPresenter;
@@ -29,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        ((MvpApplication) getApplication()).getComponent().inject(this);
+
+//        mImageView = (ImageView) findViewById(R.id.image);
+//        mTitle = (TextView) findViewById(R.id.title);
         MvpApplication.getComponent().inject(this);
         mainPresenter.setView(this);
     }
@@ -44,6 +48,18 @@ public class MainActivity extends AppCompatActivity implements MainView {
         Picasso.with(this)
                 .load(imageUrl)
                 .into(mImageView);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainPresenter.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mainPresenter.onPause();
     }
 
     @Override
