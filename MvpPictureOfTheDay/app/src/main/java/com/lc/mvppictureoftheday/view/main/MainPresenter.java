@@ -11,4 +11,5 @@ import com.lc.mvppictureoftheday.LifecyclePresenter;
 public interface MainPresenter extends LifecyclePresenter {
     void setView(MainView view);
     void loadNasaImageOfDay();
+    String getUrl();
 }
